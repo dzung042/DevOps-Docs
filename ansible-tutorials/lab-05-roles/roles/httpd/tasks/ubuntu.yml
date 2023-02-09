@@ -1,0 +1,13 @@
+  
+- name: Install httpd server
+  apt: name=httpd state=present
+
+- name: Start httpd
+  service: name=httpd state=started enabled=yes
+
+- name: Update httpd default config
+  template: src=httpd.conf.j2 dest=/etc/httpd/conf/
+  notify:
+    - Reload httpd configuration
+
+ 

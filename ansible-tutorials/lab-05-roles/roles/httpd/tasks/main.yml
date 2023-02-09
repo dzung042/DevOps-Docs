@@ -1,0 +1,9 @@
+---
+- name: Include a play after another play
+  include: ubuntu.yml
+  when: ansible_distribution == "Ubuntu"
+
+- name: Include a play after another play
+  include: redhat.yml
+  when: ansible_distribution == "CentOS"
+
